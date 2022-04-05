@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "PhimDangChieu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PhimDangChieu</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    <strong>@item.tenphim</strong>
+                </div>
+                <div class="panel-body">
+                    <p><strong>Đạo Diễn: </strong>@item.daodien</p>
+                    <p><img src="@item.hinh" alt="hinh thumnail"></p>
+                    <p><strong>Ngày Chiếu: </strong>@item.ngaychieu</p>
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pull-right">
+                        <div class="Dangchieu/Sapchieu">
+                            @if (item.ngaychieu > DateTime.Now)
+                            {
+                                <a class="btn btn-warning">
+                                    Sắp chiếu
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-success ">
+                                    Đang Chiếu
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+</div>
